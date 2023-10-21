@@ -1,0 +1,11 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 88px);
+  gap: 10px;
+  text-align: center;
+}
+
+.clear {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}

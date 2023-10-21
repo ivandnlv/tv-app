@@ -1,0 +1,19 @@
+@import '../../sass/variables.scss';
+
+.scan {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 251px;
+  align-items: center;
+  background: $main-color;
+  text-align: center;
+  gap: 10px;
+}
+
+.title {
+  max-width: 231px;
+  font-size: 16px;
+  font-weight: 500;
+}
