@@ -34,5 +34,12 @@
         filter: invert(1);
       }
     }
+    &:focus {
+      outline: none;
+      background: #000;
+      img {
+        filter: invert(1);
+      }
+    }
   }
 }

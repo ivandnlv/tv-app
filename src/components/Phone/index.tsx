@@ -60,7 +60,9 @@ export function Phone() {
       <div className={styles.mask}>
         <PhoneMask value={phoneOutput} isError={error?.toLowerCase().includes('номер') ?? false} />
       </div>
-      <p className="subtitle">и с Вами свяжется наш менеждер для дальнейшей консультации</p>
+      <p className={'subtitle' + ' ' + styles.subtitle}>
+        и с Вами свяжется наш менеждер для дальнейшей консультации
+      </p>
       <div className={styles.board}>
         <PhoneBoard onOutputChange={onBoardClick} onOutputClear={onOutputClear} />
       </div>

@@ -38,10 +38,14 @@ body {
 
 .container {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   top: 0;
   left: 0;
-  padding: 72px 48px;
   width: 380px;
+  height: 100%;
   text-align: center;
   background: $main-color;
 }

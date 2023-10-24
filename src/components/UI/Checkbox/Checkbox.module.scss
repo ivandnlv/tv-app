@@ -2,13 +2,34 @@
   padding-left: 10px;
   display: flex;
   align-items: center;
+  outline: none;
+  &:focus {
+    span {
+      color: #000;
+    }
+  }
   input {
     -webkit-appearance: none;
     appearance: none;
     width: 40px;
+    outline: none;
     height: 40px;
     border: 2px solid #000;
     margin-right: 20px;
+    &:hover {
+      & + span {
+        color: #000;
+        font-weight: 700;
+        text-decoration: underline;
+      }
+    }
+    &:focus {
+      & + span {
+        color: #000;
+        font-weight: 700;
+        text-decoration: underline;
+      }
+    }
     &:checked {
       background: url('./checkbox.svg') center/cover no-repeat;
     }

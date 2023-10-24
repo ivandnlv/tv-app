@@ -15,7 +15,7 @@ export function Checkbox({ children, onChange }: CheckboxProps) {
       return onChange(!isChecked);
     }
 
-    if (e?.key !== 'Enter') return;
+    if (e && e?.key !== 'Enter') return;
 
     setIsChecked((prev) => !prev);
     onChange(!isChecked);
