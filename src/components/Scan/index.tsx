@@ -20,7 +20,7 @@ export function Scan() {
       </h2>
       <img className={styles.qr} src="./qr-code.png" alt="qr code" />
       <p className={'subtitle ' + styles.subtitle}>Сканируйте QR-код или нажмите ОК</p>
-      <Btn className={styles.button} type="btn" onClick={onButtonClick}>
+      <Btn className={styles.button} onClick={onButtonClick}>
         ОК
       </Btn>
     </div>

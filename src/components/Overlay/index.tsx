@@ -15,7 +15,7 @@ export function Overlay() {
   return (
     <div className={styles.overlay}>
       <div className={styles.btn}>
-        <Btn type="btn" onClick={onClose}>
+        <Btn onClick={onClose}>
           <img src="close.svg" alt="close" />
         </Btn>
       </div>

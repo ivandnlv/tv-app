@@ -21,7 +21,7 @@ export function Phone() {
       if (e.target.textContent) {
         const value = e.target.textContent;
         setPhoneOutput((prev) => {
-          if (prev.length <= INPUT_MAX) {
+          if (prev.length < INPUT_MAX) {
             return (prev += value);
           } else return prev;
         });
