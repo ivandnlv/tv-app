@@ -1,11 +1,15 @@
+import { useContext } from 'react';
 import Qr from './Qr';
 
 import styles from './Overlay.module.scss';
 import { Btn } from '../UI';
+import { AppContext } from '../App';
 
 export function Overlay() {
+  const { toggleScreen } = useContext(AppContext);
+
   const onClose = () => {
-    console.log('close');
+    toggleScreen('empty');
   };
 
   return (

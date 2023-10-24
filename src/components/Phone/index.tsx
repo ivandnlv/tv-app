@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import PhoneBoard from './PhoneBoard';
 import PhoneMask from './PhoneMask';
 import { Checkbox } from '../UI';
-import { useNavigate } from 'react-router-dom';
 
 import styles from './Phone.module.scss';
 import PhoneBtn from './PhoneBtn';
-import { routerPaths } from '../../types';
+import { AppContext } from '../App';
 
 const INPUT_MAX = 10;
 
 export function Phone() {
-  const navigate = useNavigate();
+  const { toggleScreen } = useContext(AppContext);
 
   const [phoneOutput, setPhoneOutput] = useState('');
   const [isAgree, setIsAgree] = useState(false);
@@ -32,9 +31,9 @@ export function Phone() {
 
   const onCompleteClick = () => {
     if (phoneOutput.length === INPUT_MAX && isAgree) {
-      navigate('/' + routerPaths.FINAL_INFO);
+      toggleScreen('final');
     } else {
-      if (!phoneOutput.length) {
+      if (phoneOutput.length < INPUT_MAX) {
         setError('НЕВЕРНО ВВЕДЕН НОМЕР');
       } else if (!isAgree) {
         setError('Примите согласие на обработку данных');
