@@ -1,0 +1,32 @@
+.phone-mask {
+  position: relative;
+  width: fit-content;
+  height: 38px;
+  margin: 0 auto;
+}
+
+.phone {
+  width: 100%;
+  display: block;
+  border: none;
+  font-size: 32px;
+  font-weight: 700;
+  outline: none;
+  input {
+    width: 100%;
+    border: inherit;
+    outline: inherit;
+    text-align: center;
+    font-size: inherit;
+    font-weight: inherit;
+    background: none;
+    &:disabled {
+      color: #000;
+    }
+    &::placeholder {
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+  }
+}

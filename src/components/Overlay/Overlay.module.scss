@@ -1,0 +1,38 @@
+@import '../../sass/variables.scss';
+
+.overlay {
+  padding: 20px 20px 40px 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  width: fit-content;
+  height: 100%;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.btn {
+  width: 88px;
+  height: 52px;
+  button {
+    cursor: pointer;
+    background: #fff;
+    border: 2px solid #000;
+    min-width: 0;
+    width: inherit;
+    height: inherit;
+    img {
+      width: 20px;
+      height: 20px;
+      transition: filter $animation-duration ease-in-out;
+    }
+    &:hover {
+      background: #000;
+      img {
+        filter: invert(1);
+      }
+    }
+  }
+}

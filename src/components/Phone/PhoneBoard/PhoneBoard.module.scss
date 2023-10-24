@@ -3,6 +3,9 @@
   grid-template-columns: repeat(3, 88px);
   gap: 10px;
   text-align: center;
+  button {
+    text-transform: uppercase;
+  }
 }
 
 .clear {

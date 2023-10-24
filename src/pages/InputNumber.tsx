@@ -1,11 +1,10 @@
-import { Header, Phone } from '../components';
+import { Phone, Overlay } from '../components';
 
 export default function InputNumber() {
   return (
     <>
-      <Header />
       <Phone />
-      <div>Input number</div>
+      <Overlay />
     </>
   );
 }

@@ -3,7 +3,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { routerPaths } from './types';
 import PromoVideo from './pages/PromoVideo';
 import InputNumber from './pages/InputNumber.tsx';
-import FinalInfo from './pages/FinalInfo.tsx';
+import FinalInfo from './pages/FinalInfo/';
 
 import './index.scss';
 

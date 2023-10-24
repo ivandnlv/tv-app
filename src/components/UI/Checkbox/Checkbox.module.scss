@@ -1,0 +1,24 @@
+.checkbox {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #000;
+    margin-right: 20px;
+    &:checked {
+      background: url('./checkbox.svg') center/cover no-repeat;
+    }
+  }
+  span {
+    display: block;
+    color: #565656;
+    width: 214px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}

@@ -1,3 +1,4 @@
+@import './sass/variables.scss';
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +17,31 @@ a {
 }
 
 body {
+  background: url('./background.png') center/cover no-repeat;
   position: relative;
+  height: 100vh;
   max-width: 1280px;
   max-height: 720px;
+}
+
+.title {
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.subtitle {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 72px 48px;
+  width: 380px;
+  text-align: center;
+  background: $main-color;
 }

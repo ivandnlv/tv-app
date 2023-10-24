@@ -25,6 +25,7 @@
     "react-router-dom": "^6.17.0",
     "sass": "^1.69.4",
     "typescript": "^5.0.2",
+    "use-mask-input": "^3.3.6",
     "vite": "^4.4.5"
   }
 }

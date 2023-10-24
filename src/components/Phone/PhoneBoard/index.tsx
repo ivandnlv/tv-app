@@ -12,14 +12,14 @@ interface PhoneBoardProps {
 export default function PhoneBoard({ onOutputChange, onOutputClear }: PhoneBoardProps) {
   return (
     <div className={styles.board}>
-      {BUTTONS_VALUES.map((btn) =>
-        btn !== 'cтереть' ? (
-          <BoardBtn key={btn} onOutputChange={onOutputChange}>
-            {btn}
+      {BUTTONS_VALUES.map((btnValue) =>
+        btnValue !== 'cтереть' ? (
+          <BoardBtn key={btnValue} onOutputChange={onOutputChange}>
+            {btnValue}
           </BoardBtn>
         ) : (
-          <div className={styles.clear} key={btn}>
-            <BoardBtn onOutputClear={onOutputClear}>{btn}</BoardBtn>
+          <div className={styles.clear} key={btnValue}>
+            <BoardBtn onOutputClear={onOutputClear}>{btnValue}</BoardBtn>
           </div>
         ),
       )}
