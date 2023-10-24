@@ -1,4 +1,3 @@
-import PhoneBtn from '../Phone/PhoneBtn';
 import Qr from './Qr';
 
 import styles from './Overlay.module.scss';
