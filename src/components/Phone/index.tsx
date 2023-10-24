@@ -16,18 +16,48 @@ export function Phone() {
   const [isAgree, setIsAgree] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const addToPhoneOutput = (value: string) => {
+    setPhoneOutput((prev) => {
+      if (prev.length < INPUT_MAX) {
+        return (prev += value);
+      } else return prev;
+    });
+  };
+
+  const removeFromPhoneOutput = () => {
+    setPhoneOutput((prev) => {
+      if (prev.length > 0) {
+        return prev.slice(0, -1);
+      } else return prev;
+    });
+  };
+
   const onBoardClick = (e: React.MouseEvent) => {
     if (e.target instanceof HTMLButtonElement) {
       if (e.target.textContent) {
         const value = e.target.textContent;
-        setPhoneOutput((prev) => {
-          if (prev.length < INPUT_MAX) {
-            return (prev += value);
-          } else return prev;
-        });
+        addToPhoneOutput(value);
       }
     }
   };
+
+  const onNumpadClick = (e: KeyboardEvent) => {
+    if (Number(e.key) || e.key === '0') {
+      addToPhoneOutput(e.key);
+    }
+
+    if (e.key === 'Backspace') {
+      removeFromPhoneOutput();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', (e) => onNumpadClick(e));
+
+    return () => {
+      document.removeEventListener('keydown', (e) => onNumpadClick(e));
+    };
+  }, []);
 
   const onCompleteClick = () => {
     if (phoneOutput.length === INPUT_MAX && isAgree) {
