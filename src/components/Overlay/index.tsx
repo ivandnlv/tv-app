@@ -3,12 +3,12 @@ import Qr from './Qr';
 
 import styles from './Overlay.module.scss';
 import { Btn } from '../UI';
-import { AppContext } from '../App';
-import { InputContext } from '../../screens/InputNumber';
+import { AppContext } from '../../contexts';
+import { InputContext } from '../../contexts';
 
 export function Overlay() {
   const { toggleScreen } = useContext(AppContext);
-  const { addToRefs } = useContext(InputContext);
+  const { addToRefs, deleteFromRefs } = useContext(InputContext);
 
   const onClose = () => {
     toggleScreen('empty');
@@ -18,9 +18,12 @@ export function Overlay() {
 
   useEffect(() => {
     if (btnRef) {
-      btnRef.current?.setAttribute('name', 'closeBtn');
       addToRefs(btnRef);
     }
+
+    return () => {
+      deleteFromRefs(btnRef);
+    };
   }, [btnRef]);
 
   return (

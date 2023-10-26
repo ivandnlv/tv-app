@@ -5,14 +5,13 @@ import { Checkbox } from '../UI';
 
 import styles from './Phone.module.scss';
 import PhoneBtn from './PhoneBtn';
-import { AppContext } from '../App';
-import { InputContext } from '../../screens/InputNumber';
+import { AppContext, InputContext } from '../../contexts';
 
 const INPUT_MAX = 10;
 
 export function Phone() {
   const { toggleScreen } = useContext(AppContext);
-  const { addToRefs } = useContext(InputContext);
+  const { addToRefs, deleteFromRefs } = useContext(InputContext);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const completeBtnRef = useRef<HTMLButtonElement>(null);
@@ -22,6 +21,11 @@ export function Phone() {
       addToRefs(inputRef);
       addToRefs(completeBtnRef);
     }
+
+    return () => {
+      deleteFromRefs(inputRef);
+      deleteFromRefs(completeBtnRef);
+    };
   }, [inputRef, completeBtnRef]);
 
   const [phoneOutput, setPhoneOutput] = useState('');
