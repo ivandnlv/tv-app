@@ -1,12 +1,13 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useState, RefObject } from 'react';
 import styles from './Checkbox.module.scss';
 
 interface CheckboxProps {
   children: ReactNode;
   onChange: (val: boolean) => void;
+  inputRef?: RefObject<HTMLInputElement>;
 }
 
-export function Checkbox({ children, onChange }: CheckboxProps) {
+export function Checkbox({ children, onChange, inputRef }: CheckboxProps) {
   const [isChecked, setIsChecked] = useState(false);
 
   const onCheckboxClick = (e?: React.KeyboardEvent | null) => {
@@ -24,6 +25,7 @@ export function Checkbox({ children, onChange }: CheckboxProps) {
   return (
     <label className={styles.checkbox}>
       <input
+        ref={inputRef ? inputRef : null}
         type="checkbox"
         checked={isChecked}
         onChange={() => onCheckboxClick(null)}

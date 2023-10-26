@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, useRef } from 'react';
 import PhoneBoard from './PhoneBoard';
 import PhoneMask from './PhoneMask';
 import { Checkbox } from '../UI';
@@ -6,11 +6,23 @@ import { Checkbox } from '../UI';
 import styles from './Phone.module.scss';
 import PhoneBtn from './PhoneBtn';
 import { AppContext } from '../App';
+import { InputContext } from '../../screens/InputNumber';
 
 const INPUT_MAX = 10;
 
 export function Phone() {
   const { toggleScreen } = useContext(AppContext);
+  const { addToRefs } = useContext(InputContext);
+
+  const inputRef = useRef<HTMLInputElement>(null);
+  const completeBtnRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (inputRef && completeBtnRef) {
+      addToRefs(inputRef);
+      addToRefs(completeBtnRef);
+    }
+  }, [inputRef, completeBtnRef]);
 
   const [phoneOutput, setPhoneOutput] = useState('');
   const [isAgree, setIsAgree] = useState(false);
@@ -41,7 +53,7 @@ export function Phone() {
     }
   };
 
-  const onNumpadClick = (e: KeyboardEvent) => {
+  const onKeyboardClick = (e: KeyboardEvent) => {
     if (Number(e.key) || e.key === '0') {
       addToPhoneOutput(e.key);
     }
@@ -52,10 +64,10 @@ export function Phone() {
   };
 
   useEffect(() => {
-    document.addEventListener('keydown', (e) => onNumpadClick(e));
+    document.addEventListener('keydown', (e) => onKeyboardClick(e));
 
     return () => {
-      document.removeEventListener('keydown', (e) => onNumpadClick(e));
+      document.removeEventListener('keydown', (e) => onKeyboardClick(e));
     };
   }, []);
 
@@ -97,7 +109,9 @@ export function Phone() {
       </div>
       <div className={styles.checkbox}>
         {!error ? (
-          <Checkbox onChange={setIsAgree}>Согласие на обработку персональных данных</Checkbox>
+          <Checkbox inputRef={inputRef} onChange={setIsAgree}>
+            Согласие на обработку персональных данных
+          </Checkbox>
         ) : (
           <p
             className="subtitle"
@@ -107,7 +121,7 @@ export function Phone() {
         )}
       </div>
       <div className={styles.complete}>
-        <PhoneBtn onClick={onCompleteClick} />
+        <PhoneBtn btnRef={completeBtnRef} onClick={onCompleteClick} />
       </div>
     </div>
   );
